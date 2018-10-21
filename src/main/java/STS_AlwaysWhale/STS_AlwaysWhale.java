@@ -1,7 +1,12 @@
 package STS_AlwaysWhale;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
+
+import com.megacrit.cardcrawl.neow.NeowEvent;
 
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
@@ -20,7 +25,8 @@ public class STS_AlwaysWhale implements PostDungeonInitializeSubscriber, PostIni
 	
 	public static final String MODNAME = "Always Whale";
 	public static final String AUTHOR = "Modernkennnern";
-	public static final String DESCRIPTION = "v0.0.1\nRemoves the whale prerequisite of getting to the first boss";
+	public static final String VERSION = "0.1.0";
+	public static final String DESCRIPTION = "Removes the whale prerequisite of getting to the first boss";
 	
 	public static final float BUTTON_ENABLE_X = 350.0f;
 	public static final float BUTTON_ENABLE_Y = 750.0f;
@@ -39,8 +45,27 @@ public class STS_AlwaysWhale implements PostDungeonInitializeSubscriber, PostIni
 	public void receivePostDungeonInitialize() {
 		
 		if (AlwaysWhale) {
-			// Do Neow's Blessing
-			Settings.isTestingNeow = true;
+
+			NeowEvent neowEvent = new NeowEvent();
+			Method method = null;
+			try {
+				method = neowEvent.getClass().getDeclaredMethod("blessing");
+			} catch (NoSuchMethodException | SecurityException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+			method.setAccessible(true);
+
+			try {
+				method.invoke(neowEvent);
+			} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
 		}
 		
 	}
@@ -62,7 +87,7 @@ public class STS_AlwaysWhale implements PostDungeonInitializeSubscriber, PostIni
         
         
 //        settingsPanel.addLabel("This mod does not have any settings.", 400.0f, 700.0f, (me) -> {});
-        BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
+        BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, VERSION + " " + DESCRIPTION, settingsPanel);
     }
     
     public void SetBoolean(Boolean bool) {

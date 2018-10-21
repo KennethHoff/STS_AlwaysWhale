@@ -16,9 +16,8 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/GitHub/Slay the Spire mods/lib/desktop-1.0.jar"/>
 	<classpathentry kind="lib" path="E:/GitHub/Slay the Spire mods/lib/ModTheSpire.jar"/>
-	<classpathentry kind="lib" path="E:/GitHub/Slay the Spire mods/lib/BaseMod.jar"/>
+	<classpathentry kind="lib" path="E:/GitHub/Slay the Spire mods/lib/BaseMod.jar" sourcepath="E:/GitHub/Slay the Spire mods/Dependencies/BaseMod.jar"/>
 	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
 		<attributes>
 			<attribute name="optional" value="true"/>
@@ -30,5 +29,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="E:/GitHub/Slay the Spire mods/lib/desktop-1.0.jar" sourcepath="E:/GitHub/Slay the Spire mods/lib/desktop-1.0.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

@@ -3,7 +3,8 @@
   "name": "Always Whale",
   "author_list": ["Modernkennnern"],
   "description": "Removes the prerequisite for the whale",
-  "version": "0.0.1",
-  "sts_version": "05-01-2018",
-  "mts_version": "2.6.0"
+  "version": "0.1.0",
+  "sts_version": "10-18-2018",
+  "mts_version": "3.4.0",
+  "dependencies": ["basemod"]
 }
